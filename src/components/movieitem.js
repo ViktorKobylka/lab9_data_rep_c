@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import { Button } from "bootstrap";
 
 const MovieItem = (props)=> {
   useEffect(() => {
@@ -18,6 +19,7 @@ const MovieItem = (props)=> {
           </blockquote>
         </Card.Body>
         <Link className="btn btn-primary" to={"/edit/"+props.mymovie._id}>Edit</Link>
+        <Button variant="danger" onClick={handleDelete}>Delete</Button>
       </Card>
     </div>
   );

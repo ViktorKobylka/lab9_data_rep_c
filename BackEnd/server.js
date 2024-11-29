@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:admin@martinscluster.w5rtkz0.mongodb.net/DB14');
 
+
 const movieSchema = new mongoose.Schema({
   title:String,
   year:String,
