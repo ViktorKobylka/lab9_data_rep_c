@@ -1,12 +1,24 @@
 import { useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
-import { Button } from "bootstrap";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 const MovieItem = (props)=> {
   useEffect(() => {
     console.log("Movie Item:", props.mymovie);
   }, [props.mymovie]); // Only run this effect when the mymovie prop changes
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    axios.delete('http://localhost:4000/api/movie/' + props.myMovie._id)
+        .then(() => {
+            props.Reload(); // Refresh the movie list after deletion
+        })
+        .catch((error) => {
+            console.error("Error deleting movie:", error);
+        });
+  };
 
   return (
     <div>
